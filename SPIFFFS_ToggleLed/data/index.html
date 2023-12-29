@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ESP32 Marathon Toothed Toggle - CSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="content">
+
+	<input type="checkbox" id="btn" onclick="toggleLED()">
+	<label for="btn">
+		<span class="track">
+			<span class="track-top">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+			<span class="track-bot">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+		</span>
+		<span class="thumb"></span>
+	</label>
+	<div class="lights">
+		<span class="light-off"></span>
+		<span class="light-on"></span>
+	</div>
+
+</div>
+
+  <script>
+    function toggleLED() {
+        fetch('/toggle') // Send a GET request to the ESP32 server
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Log the response for debugging
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+</body>
+</html>
